@@ -1,15 +1,15 @@
-import mongoose, { Schema } from "mongoose";
-import { Tinventory, Tproduct, Tvariants } from "./product.interface";
+import mongoose, { Schema } from 'mongoose';
+import { Tinventory, Tproduct, Tvariants } from './product.interface';
 
 const variantsSchema = new Schema<Tvariants>({
     type: {
         type: String,
-        required: [true, " varient type is required"],
+        required: [true, ' varient type is required'],
     },
     value: {
         type: String,
-        required: [true, "varient value is required"],
-    }
+        required: [true, 'varient value is required'],
+    },
 });
 
 const invantorySchema = new Schema<Tinventory>({
@@ -18,34 +18,33 @@ const invantorySchema = new Schema<Tinventory>({
     },
     inStock: {
         type: Boolean,
-        required: true
-    }
+        required: true,
+    },
 });
 const productSchema = new Schema<Tproduct>({
     name: {
         type: String,
-        required: [true, "name is required"],
+        required: [true, 'name is required'],
+        unique: true
     },
     description: {
         type: String,
-        required: [true, "description is required"]
+        required: [true, 'description is required'],
     },
     price: {
         type: Number,
-        required: [true, "price is required"]
+        required: [true, 'price is required'],
     },
     category: {
         type: String,
-        required: [true, "category is required"]
+        required: [true, 'category is required'],
     },
     tags: {
-
         type: [String],
-        required: [true, "tags are requred"],
-
+        required: [true, 'tags are requred'],
     },
     variants: [variantsSchema],
-    inventory: invantorySchema
+    inventory: invantorySchema,
 });
 
 export const ProductModel = mongoose.model('ProductModel', productSchema);
