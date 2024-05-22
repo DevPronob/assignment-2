@@ -17,7 +17,7 @@ export default {
   database_url: process.env.DATABASE_URL,
 };
 <br/>
-process.env.YOUR .ENV FILE PORT
+process.env.YOUR .ENV FILE PORT <br/>
 process.env.YOUR .ENV FILE DATABASE URL
 <br/>
 that. 
