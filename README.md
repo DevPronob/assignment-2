@@ -1,4 +1,4 @@
-##how to run the application locally
+# how to run the application locally
 
 Firstly you have first to clone your repo
 git clone https://github.com/DevPronob/assignment-2.git
