@@ -12,12 +12,10 @@ collect the mongodb url and paste it in the .env file with a proper name
 nad aslo add the port number with name in the .env file . <br/>
 then go to the config >index.ts file . add .env file names in index.ts like <br/>
 
-
 export default {
-  port: process.env.PORT,
+  port: process.env.PORT,  <br/>
   database_url: process.env.DATABASE_URL,
 };
-
 <br/>
 process.env.YOUR .ENV FILE PORT
 process.env.YOUR .ENV FILE DATABASE URL
