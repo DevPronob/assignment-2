@@ -19,7 +19,10 @@ const createOrder = async (req: Request, res: Response) => {
             message: 'Order Created successfully !',
             data: result,
         });
-    } catch (err) {
+    } catch (err: any) {
+        if (err.message === 'insufficient stock') {
+            return res.status(400).json({ message: "Not enough inventory." });
+        }
         return res.status(500).json({
             success: false,
             message: 'Order Not Created successfully !',
@@ -40,15 +43,11 @@ const getOrder = async (req: Request, res: Response) => {
             message: message,
             data: result,
         });
-    } catch (err: any) {
-
-        if (err.message === 'Not enough inventory.') {
-            return res.status(400).json({ message: err.message });
-        }
+    } catch (err) {
         return res.status(500).json({
             success: false,
             message: 'Orders not fetched successfully!',
-            error: err.message,
+            error: err,
         });
     }
 };

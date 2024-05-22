@@ -32,14 +32,23 @@ OrderSchema.pre('save', async function (next) {
         return next(new Error('Product not found.'));
     }
     if (product.inventory < this.quantity) {
-        product.inventory.inStock = false;
+        return next(new Error('insufficient stock'));
+
+
+    }
+    if (product.inventory.quantity > 1) {
+        product.inventory.quantity -= this.quantity;
+        if (product.inventory.quantity <= 0) {
+            product.inventory.inStock = false;
+        }
+        await product.save();
+        // eslint-disable-next-line no-dupe-else-if
+    } else if (product.inventory.quantity < 1) {
+        product.inventory.inStock == false;
         await product.save();
         return next(new Error('insufficient stock'));
     }
-    product.inventory.quantity -= this.quantity;
-    await product.save();
     next();
-    console.log(product)
 });
 
 export const OrderModel = mongoose.model('OrderModel', OrderSchema);
