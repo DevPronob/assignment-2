@@ -8,7 +8,6 @@ export type Tinventory = {
 };
 
 export type Tproduct = {
-  save(): unknown;
   name: string;
   description: string;
   price: number;
