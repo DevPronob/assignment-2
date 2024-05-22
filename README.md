@@ -14,9 +14,12 @@ export default {
 };
 process.env.YOUR .ENV FILE PORT
 process.env.YOUR .ENV FILE DATABASE URL
-that. after adding that got to the server.ts file add see all the configeration is correct or not.
+that. after adding that go to the server.ts file and see all the configeration is correct or not.
 then add the commend 
 npm run start:dev
+if then 
+Example app listening on port 5000
+this messaage is coming in the console then every thing is ok 
 
-then you can use the application locally
+then you can use the application locally .
 
