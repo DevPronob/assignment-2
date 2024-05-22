@@ -46,7 +46,6 @@ OrderSchema.pre('save', async function (next) {
             await product.save();
         }
     }
-    // eslint-disable-next-line no-dupe-else-if
     // } else if (product.inventory.quantity === 0) {
     //     console.log("3")
     //     product.inventory.inStock = false;
